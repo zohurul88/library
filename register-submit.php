@@ -1,5 +1,5 @@
 <?php
-
+//database connection
 try{
     $dbh = new PDO("mysql:host=localhost;dbname=library","root","");
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -17,6 +17,7 @@ $type = $_POST['type'];
 $no_error = true;
 $message = [];
 
+//user field empty check
 if(empty($fullname)){
     $message[] = "Full name required";
     $no_error = false;
@@ -55,9 +56,10 @@ if($no_error === true){
 
 $message_string ="";
 
-foreach($message as $msg)
-{
-    $message_string .= $msg."<br/>";
-}
+//foreach($message as $msg)
+//{
+//    $message_string .= $msg."<br/>";
+//}
+$message_string = implode("", $message);
 
 header("location: register.php?message=".$message_string);
