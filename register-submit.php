@@ -1,11 +1,6 @@
 <?php
 
-try{
-    $dbh = new PDO("mysql:host=localhost;dbname=library","root","");
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}catch(PDOException $ex){
-    echo $ex->getMessage();
-}
+require 'app/database.php';
 
 $fullname = $_POST['fullname'];
 $contact = $_POST['contact'];
@@ -38,10 +33,7 @@ if(empty($type)){
     $message[] =  "Please Select a user type";
     $no_error = false;
 }
-
-// echo "<pre>";
-// print_r($errors);
-
+ 
 if($no_error === true){
     $sql = "INSERT INTO `user` (`name`,`contact`,`address`,`email`,`password`,`user_type`) VALUES ('$fullname','$contact','$address','$email','$password','$type')";
     $message[] =  "Insert Success full";
@@ -53,11 +45,8 @@ if($no_error === true){
     }
 } 
 
-$message_string ="";
-
-foreach($message as $msg)
-{
-    $message_string .= $msg."<br/>";
-}
+ 
+$message_string = implode('<br> ', $message);
+ 
 
 header("location: register.php?message=".$message_string);

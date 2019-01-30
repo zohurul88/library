@@ -30,7 +30,7 @@
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
-<?php echo $_GET['message']; ?>
+<?php echo $_GET['message'] ?? ""; ?>
   <div class="register-box-body">
     <form action="http://localhost/library/register-submit.php" method="post">
 	  <div class="form-group has-feedback">
