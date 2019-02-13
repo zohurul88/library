@@ -1,6 +1,7 @@
 <?php
 
 require 'app/database.php';
+require 'app/function.php';
 
 $author = $_POST['author'];
  
@@ -13,10 +14,14 @@ if(empty($author)){
 } 
  
 if($no_error === true){
-    $sql = "INSERT INTO `author` (`name`) VALUES ('$author')";
-    $message[] =  "Insert Success full";
+    $table_name = "author";
+    $table_filds = ["name"];
+    $from_name = [$author];
+
+    $query = insert_author($table_name, $table_filds, $from_name);
+    $message[] =  "Author Insert Success full";
     try{        
-    $stm =  $dbh->prepare($sql);
+    $stm =  $dbh->prepare($query);
     $stm->execute();
     }catch(PDOException $ex){
         echo $ex->getMessage();

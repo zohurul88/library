@@ -1,6 +1,7 @@
 <?php
 
 require 'app/database.php';
+require 'app/function.php';
 
 $fullname = $_POST['fullname'];
 $contact = $_POST['contact'];
@@ -35,7 +36,10 @@ if(empty($type)){
 }
  
 if($no_error === true){
-    $sql = "INSERT INTO `user` (`name`,`contact`,`address`,`email`,`password`,`user_type`) VALUES ('$fullname','$contact','$address','$email','$password','$type')";
+    $table = "user";
+    $data = ['name'=>$fullname, 'contact'=>$contact, 'address'=>$address, 'email'=>$email, 'password'=>$password, 'user_type'=>$type];
+    $sql = insert_user($table, $data); 
+    // print_r($sql);die();
     $message[] =  "Insert Success full";
     try{        
     $stm =  $dbh->prepare($sql);

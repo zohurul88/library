@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Category</title>
+  <title>Book</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -221,7 +222,7 @@
           <ul class="treeview-menu">
             <li><a href="category.html"><i class="fa fa-circle-o"></i>Add Category</a></li>
             <li><a href="author.html"><i class="fa fa-circle-o"></i>Add Author</a></li>
-            <li><a href="book.html"><i class="fa fa-circle-o"></i>Add Book</a></li>			
+            <li><a href="book.html"><i class="fa fa-circle-o"></i>Add Book</a></li>				
           </ul>
         </li>
         
@@ -237,12 +238,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Category
+        Book
         <small>Name</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">Category</li>
+        <li class="active">Book</li>
       </ol>
     </section>
 
@@ -254,21 +255,58 @@
         <div class="box-header with-border">
 			<div class="box box-primary">
 				<div class="box-header with-border">
-				  <h3 class="box-title">Add Category</h3>
+				  <h3 class="box-title">Add Book</h3>
 				</div>
 				<!-- /.box-header -->
-                <!-- form start -->
-                <?php echo $_GET['message'] ?? ""; ?>
-				<form role="form" method="POST" action="http://localhost/library/category-submit.php">
+        <!-- form start -->
+        <?php echo $_GET['message'] ?? ""; ?>
+
+				<form role="form" action="http://localhost/library/book-submit.php" method="POST">
 				  <div class="box-body">
 					<div class="form-group">
-					  <label for="category">Category Name</label>
-					  <input type="text" name="category" class="form-control" id="category" placeholder="Enter Category Name">
+					  <label for="book_name">Book Name</label>
+					  <input name="name" type="text" class="form-control" id="book_name" placeholder="Enter Book Name">
+          </div>	
+          <div class="form-group">
+					  <label for="book_name">Book Description</label>
+					  <input name="description" type="text" class="form-control" id="description" placeholder="Enter Book Name">
+          </div>
+          <div class="form-group">
+					  <label for="book_name">Photo</label>
+					  <input name="picture" type="text" class="form-control" id="picture" placeholder="Enter Book Name">
+					</div>				
+					<div class="form-group has-feedback">	
+					  <label for="category">Book Author</label>					
+						<select class="form-control" name="author_id">
+						  <option value="1">Nazrul</option>
+						  <option value="2">Rabindronath</option>
+						</select>
+					</div>
+					<div class="form-group has-feedback">	
+					  <label for="category">Book Category</label>					
+						<select class="form-control" name="category_id">
+						  <option value="Bangladesh">Bangladesh</option>
+						  <option value="1">World</option>
+						  <option value="2">Islam</option>
+						  <option value="3">Hindu</option>
+						</select>
+					</div>					
+					<div class="form-group">
+					  <label for="book_quantity">Book Quantity</label>
+					  <input name="quantity" type="text" class="form-control" id="book_quantity" placeholder="Enter Book Quantity">
+					</div>
+					<div class="form-group">
+					  <label for="book_edition">Book Edition</label>
+					  <input name="edition" type="text" class="form-control" id="book_edition" placeholder="Enter Book Edition">
+					</div>
+					<div class="form-group">
+					  <label for="book_sbn">Book SBN</label>
+					  <input name="sbn" type="text" class="form-control" id="book_sbn" placeholder="Enter Book SBN">
 					</div>
 				  </div>
 				  <!-- /.box-body -->
 				  <div class="box-footer">
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<button name="submit" type="submit" class="btn btn-primary">Submit</button>
 				  </div>
 				</form>
 			</div>          

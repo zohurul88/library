@@ -15,8 +15,8 @@ if(empty($category)){
 } 
  
 if($no_error === true){
-    $table_name = "author";
-    $query_last_portion = "(`name`) VALUES ('$category')";
+    $table_name = "category";
+    // $query_last_portion = "(`name`) VALUES ('$category')";
  
 
     // $flied = ['name','status'];
@@ -29,8 +29,10 @@ if($no_error === true){
  
 
     $sql = insert2($table_name, $data);
+    // print_r($sql);die();
 
     $message[] =  "Insert Success full";
+
     try{        
     $stm =  $dbh->prepare($sql);
     $stm->execute();
