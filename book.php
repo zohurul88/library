@@ -261,7 +261,7 @@
         <!-- form start -->
         <?php echo $_GET['message'] ?? ""; ?>
 
-				<form role="form" action="http://localhost/library/book-submit.php" method="POST">
+				<form role="form" action="http://localhost/library/submit.php?request_for=book" method="POST">
 				  <div class="box-body">
 					<div class="form-group">
 					  <label for="book_name">Book Name</label>

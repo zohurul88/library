@@ -5,5 +5,3 @@ try{
 }catch(PDOException $ex){
     echo $ex->getMessage();
 } 
-
-return "asd";

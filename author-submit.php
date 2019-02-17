@@ -1,7 +1,6 @@
 <?php
 
-require 'app/database.php';
-require 'app/function.php';
+require 'bootstrap.php'; 
 
 $author = $_POST['author'];
  
